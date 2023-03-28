@@ -1,19 +1,13 @@
 import './App.css';
 import Search from './components/search/Search';
-import axios from 'axios';
 
 import Container from 'react-bootstrap/Container';
 import CurrentWeather from './components/current-weather/CurrentWeather';
 import Intro from './components/Intro';
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
-import {
-  WEATHER_API_URL,
-  WEATHER_API_KEY,
-  TIME_ZONE_API_KEY,
-  TIME_ZONE_API_URL,
-} from './api';
-import { useEffect, useState } from 'react';
+import { WEATHER_API_URL, WEATHER_API_KEY } from './api';
+import { useState } from 'react';
 
 function App() {
   const [currentWeather, setCurrentWeather] = useState(null);
@@ -28,33 +22,29 @@ function App() {
       `${WEATHER_API_URL}/forecast?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`
     );
 
-    const fetchTimeZone = fetch(
-      `${TIME_ZONE_API_URL}/get-time-zone?key=${TIME_ZONE_API_KEY}&format=json&by=position&lat=${lat}&lng=${lon}`
-    );
+    setTimeout(() => {
+      Promise.all([fetchCurrentWeather, fetchWeatherForecast])
+        .then(async (response) => {
+          const currentWeatherResponse = await response[0].json();
+          const weatherForecastResponse = await response[1].json();
 
-    Promise.all([fetchCurrentWeather, fetchWeatherForecast, fetchTimeZone])
-      .then(async (response) => {
-        const currentWeatherResponse = await response[0].json();
-        const weatherForecastResponse = await response[1].json();
-        const timeZoneResponse = await response[2].json();
-
-        setCurrentWeather({
-          city: searchData.label,
-          time: timeZoneResponse.formatted,
-          ...currentWeatherResponse,
+          setCurrentWeather({
+            city: searchData.label,
+            ...currentWeatherResponse,
+          });
+          setWeatherForecast({
+            city: searchData.label,
+            ...weatherForecastResponse,
+          });
+        })
+        .catch((err) => {
+          console.log(err);
         });
-        setWeatherForecast({
-          city: searchData.label,
-          ...weatherForecastResponse,
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    }, 3000);
   };
 
   console.log(currentWeather);
-  // console.log(currentWeather.city);
+  console.log(currentWeather.main.temp);
 
   return (
     <div>
@@ -92,8 +82,7 @@ function App() {
           <Search onSearchChange={handleOnSearchChange} />
         </div>
         <div className="mt-2 mb-2 current">
-          {/* <CurrentWeather data={currentWeather} /> */}
-          {currentWeather !== null && <CurrentWeather data={currentWeather} />}
+          {currentWeather && <CurrentWeather data={currentWeather} />}
         </div>
       </Container>
       <footer>
