@@ -1,6 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faLocationDot,
   faWind,
   faDroplet,
   faGaugeSimple,
@@ -49,10 +48,6 @@ const WeatherForecast = ({ data }) => {
             <Container className="weather-forecast-container mb-4">
               <div className="weather-card">
                 <div className="top-row">
-                  {/* <p className="city">
-                    {' '}
-                    <FontAwesomeIcon icon={faLocationDot} /> {item.city}
-                  </p>{' '} */}
                   <p className="date-today">
                     {FORECAST_DAYS[index]}, {item.dt_txt.substring(5, 10)}
                   </p>
@@ -136,12 +131,12 @@ const WeatherForecast = ({ data }) => {
 
                   <Col>
                     <p className="feels-like">
-                      {Math.round(item.main.temp_min)}° /{' '}
-                      {Math.round(item.main.temp_max)}°
+                      {Math.round(item.main.temp_min)}°C /{' '}
+                      {Math.round(item.main.temp_max)}°C
                     </p>
-                    <h1 className="temp">{Math.round(item.main.temp)}°</h1>
+                    <h1 className="temp">{Math.round(item.main.temp)}°C</h1>
                     <p className="feels-like">
-                      Feels Like: {Math.round(item.main.feels_like)}°
+                      Feels Like: {Math.round(item.main.feels_like)}°C
                     </p>
                   </Col>
                 </Row>

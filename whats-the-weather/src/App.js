@@ -11,8 +11,6 @@ import {
 } from './api';
 
 import Container from 'react-bootstrap/Container';
-import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
-import ToggleButton from 'react-bootstrap/ToggleButton';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 import { useState } from 'react';
@@ -71,29 +69,6 @@ function App() {
         <section>
           <div className="mt-2 mb-5 searchbar">
             <div className="c-or-f">
-              <ToggleButtonGroup
-                type="radio"
-                name="degreeOptions"
-                defaultValue={1}
-                className="mb-2 mt-2"
-              >
-                <ToggleButton
-                  id="celsius"
-                  value={1}
-                  variant="outline-secondary"
-                  className="toggle"
-                >
-                  °C
-                </ToggleButton>
-                <ToggleButton
-                  id="Farenheit"
-                  value={2}
-                  variant="outline-secondary"
-                  className="toggle"
-                >
-                  °F
-                </ToggleButton>
-              </ToggleButtonGroup>
               <OverlayTrigger
                 key="right"
                 placement="right"

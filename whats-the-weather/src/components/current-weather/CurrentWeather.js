@@ -114,9 +114,9 @@ const CurrentWeather = ({ data }) => {
           </Col>
 
           <Col>
-            <h1 className="temp">{Math.round(data.main.temp)}°</h1>
+            <h1 className="temp">{Math.round(data.main.temp)}°C</h1>
             <p className="feels-like">
-              Feels Like: {Math.round(data.main.feels_like)}°
+              Feels Like: {Math.round(data.main.feels_like)}°C
             </p>
           </Col>
         </Row>
