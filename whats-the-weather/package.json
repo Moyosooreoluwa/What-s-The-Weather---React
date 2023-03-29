@@ -15,6 +15,7 @@
     "react-accessible-accordion": "^5.0.0",
     "react-bootstrap": "^2.7.2",
     "react-dom": "^18.2.0",
+    "react-multi-carousel": "^2.8.2",
     "react-scripts": "5.0.1",
     "react-select-async-paginate": "^0.7.2",
     "web-vitals": "^2.1.4"

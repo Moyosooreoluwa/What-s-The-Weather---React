@@ -4,3 +4,4 @@
 4. Current Weather
 5. Fetch Data from API
 6. Weather Card Design
+7. Future Forecasts
