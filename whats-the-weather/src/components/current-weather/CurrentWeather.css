@@ -1,3 +1,9 @@
+h1,
+h4,
+p {
+  color: whitesmoke;
+}
+
 .weather-container {
   justify-content: center;
   display: flex;
@@ -7,6 +13,13 @@
   width: 55%;
   border: 1px black solid;
   border-radius: 1rem;
+  background-color: #030303;
+  background-image: linear-gradient(
+    39deg,
+    #030303 0%,
+    #161616 50%,
+    #3b3737 100%
+  );
 }
 
 .top-row {
@@ -36,6 +49,10 @@
   width: 30%;
   padding: 0.5rem;
   margin: 0 auto;
+}
+
+img {
+  width: 100%;
 }
 
 .temp {

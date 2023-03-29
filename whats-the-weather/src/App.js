@@ -1,7 +1,8 @@
 import './App.css';
 import Search from './components/search/Search';
-import axios from 'axios';
+import Github from './images/github.svg';
 
+import axios from 'axios';
 import Container from 'react-bootstrap/Container';
 import CurrentWeather from './components/current-weather/CurrentWeather';
 import Intro from './components/Intro';
@@ -60,10 +61,10 @@ function App() {
     <div>
       {' '}
       <Container>
-        <div className="mt-3 mb-5 intro">
+        <div className="mt-3 mb-1 intro">
           <Intro />
         </div>
-        <div className="mt-5 mb-5 searchbar">
+        <div className="mt-2 mb-5 searchbar">
           <div className="c-or-f">
             <ToggleButtonGroup
               type="radio"
@@ -88,6 +89,13 @@ function App() {
                 F
               </ToggleButton>
             </ToggleButtonGroup>
+            <a
+              href="https://github.com/Moyosooreoluwa"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src={Github} alt="github" className="github-link" />
+            </a>
           </div>
           <Search onSearchChange={handleOnSearchChange} />
         </div>
@@ -97,10 +105,59 @@ function App() {
         </div>
       </Container>
       <footer>
-        <a href="https://iconscout.com/icons/sun" target="_blank">
-          Sun Icon
-        </a>{' '}
-        on <a href="https://iconscout.com">IconScout</a>
+        <Container className="mt-5">
+          <a href="https://iconscout.com/icons/sun" target="_blank">
+            Sun Icon
+          </a>{' '}
+          on <a href="https://iconscout.com">IconScout</a>
+          <a href="https://iconscout.com/icons/moon" target="_blank">
+            Moon Icon
+          </a>{' '}
+          on <a href="https://iconscout.com">IconScout</a>
+          <a href="https://iconscout.com/icons/cloudy-day" target="_blank">
+            Cloudy day Icon
+          </a>{' '}
+          on <a href="https://iconscout.com">IconScout</a>
+          <a
+            href="https://www.flaticon.com/free-icons/cloudy-night"
+            title="cloudy night icons"
+          >
+            Cloudy night icons created by fanter kamal - Flaticon
+          </a>
+          <a
+            href="https://www.flaticon.com/free-icons/cloud"
+            title="cloud icons"
+          >
+            Cloud icons created by Freepik - Flaticon
+          </a>
+          <a
+            href="https://www.flaticon.com/free-icons/clouds"
+            title="clouds icons"
+          >
+            Clouds icons created by Dragon Icons - Flaticon
+          </a>
+          <a
+            href="https://www.flaticon.com/free-icons/drizzle"
+            title="drizzle icons"
+          >
+            Drizzle icons created by Freepik - Flaticon
+          </a>
+          <a href="https://www.flaticon.com/free-icons/rain" title="rain icons">
+            Rain icons created by Freepik - Flaticon
+          </a>
+          <a
+            href="https://www.flaticon.com/free-icons/thunderstorm"
+            title="thunderstorm icons"
+          >
+            Thunderstorm icons created by justicon - Flaticon
+          </a>
+          <a href="https://www.flaticon.com/free-icons/snow" title="snow icons">
+            Snow icons created by Freepik - Flaticon
+          </a>
+          <a href="https://www.flaticon.com/free-icons/mist" title="mist icons">
+            Mist icons created by Good Ware - Flaticon
+          </a>{' '}
+        </Container>
       </footer>
     </div>
   );

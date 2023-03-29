@@ -13,3 +13,13 @@
   max-width: 30rem;
   margin: 20px auto;
 }
+
+footer a {
+  color: dimgrey;
+  font-size: 0.5rem;
+  text-decoration: none;
+}
+
+.github-link {
+  width: 55%;
+}
